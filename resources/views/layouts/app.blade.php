@@ -60,7 +60,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="info">
-                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="{{route('admin')}}" class="d-block">{{ Auth::user()->name }}</a>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
                         <a href="{{route('users.index')}}" class="nav-link">
-                            <i class="nav-icon fa fa-th"></i>
+                            <i class="nav-icon fa fa-user"></i>
                             <p>
                                 Usuarios
                             </p>
@@ -77,7 +77,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('bills.index')}}" class="nav-link">
-                            <i class="nav-icon fa fa-th"></i>
+                            <i class="nav-icon fa fa-money"></i>
                             <p>
                                 Facturas
                             </p>
@@ -85,7 +85,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('categories.index')}}" class="nav-link">
-                            <i class="nav-icon fa fa-th"></i>
+                            <i class="nav-icon fa fa-binoculars"></i>
                             <p>
                                 Categorias
                             </p>
@@ -101,7 +101,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{route('images.index')}}" class="nav-link">
-                            <i class="nav-icon fa fa-th"></i>
+                            <i class="nav-icon fa fa-image"></i>
                             <p>
                                 Imagenes
                             </p>

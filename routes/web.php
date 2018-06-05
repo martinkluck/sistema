@@ -18,10 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('admin');
     Route::resource('users', 'UserController');
     Route::resource('bills', 'BillController');
     Route::resource('categories', 'CategoryController');
-    Route::resource('images', 'ImagesController');
+    Route::resource('images', 'ImageController');
     Route::resource('products', 'ProductController');
 });
