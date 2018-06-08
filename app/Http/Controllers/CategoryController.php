@@ -36,7 +36,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create($request->all());
+        return redirect()->route('categories.index', $category->id)
+            ->with('info', 'Categoría creada con éxito.');
     }
 
     /**
@@ -58,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -70,7 +72,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        if($request->status){
+            $category->status = 1;
+        }else{
+            $category->status = 0;
+        }
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save();
+        return redirect()->route('categories.index', $category->id)
+            ->with('info', 'Categoría actualizada con éxito.');
     }
 
     /**

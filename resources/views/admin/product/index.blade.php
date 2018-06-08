@@ -19,7 +19,15 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Productos</div>
+                    <div class="card-header">
+                        Productos
+                        <span class="float-right">
+                            <a href="{{route('products.create')}}" class="btn btn-default btn-sm btn-circle" title="Agregar producto">
+                                Agregar
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover">
                             <thead>

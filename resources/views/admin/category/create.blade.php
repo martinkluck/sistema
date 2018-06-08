@@ -21,27 +21,24 @@
                 <div class="card">
                     <div class="card-header">Agregar Categorías</div>
                     <div class="card-body">
-                        <form action="{{route('categories.store')}}" type="post">
-                            {{csrf_field()}}
+                        {!! Form::open(['route'=>'categories.store']) !!}
                             <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                {{Form::label('name','Nombre')}}
+                                {{Form::text('name',null,['class'=>'form-control', 'id'=>'name'])}}
                             </div>
                             <div class="form-group">
-                                <label for="description">Descripción</label>
-                                <input type="text" class="form-control" name="description" id="description">
+                                {{Form::label('description','Descripción')}}
+                                {{Form::text('description',null,['class'=>'form-control', 'id'=>'description'])}}
+                            </div>
+                            <div class="form-check form-check-inline">
+                                {{Form::checkbox('status', true, ['class'=>'form-check-input', 'id'=>'status'])}}
+                                {{Form::label('status','Activo', ['class'=>'form-check-label'])}}
                             </div>
                             <div class="form-group">
-                                <div class="checkbox">
-                                    <label for="status">
-                                        Estado
-                                        <input type="checkbox" class="form-control" name="status" id="status">
-                                    </label>
-                                </div>
+                                {{Form::submit('Guardar',['class'=>'btn btn-primary'])}}
+                                <a href="{{route('categories.index')}}" class="btn btn-default">Cancelar</a>
                             </div>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <a href="{{route('categories.index')}}" class="btn btn-default">Cancelar</a>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

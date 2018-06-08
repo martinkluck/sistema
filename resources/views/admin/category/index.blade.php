@@ -19,7 +19,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Categorías <span class="float-right"><a href="{{route('categories.create')}}" class="btn btn-default btn-sm btn-circle" title="Agregar categoría"><i class="fa fa-plus"></i></a></span></div>
+                    <div class="card-header">Categorías <span class="float-right"><a href="{{route('categories.create')}}" class="btn btn-default btn-sm btn-circle" title="Agregar categoría">Agregar <i class="fa fa-plus"></i></a></span></div>
                     <div class="card-body">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -27,6 +27,7 @@
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Estado</th>
+                            <th colspan="2"></th>
                             </thead>
                             <tbody>
                             @foreach($categories as $category)
@@ -34,7 +35,15 @@
                                     <td>{{$category->id}}</td>
                                     <td>{{$category->name}}</td>
                                     <td>{{$category->description}}</td>
-                                    <td>{{$category->status}}</td>
+                                    <td>
+                                        @if($category->status)
+                                            <span class="badge badge-success">Activo</span>
+                                        @else
+                                            <span class="badge badge-danger">Inactivo</span>
+                                        @endif
+                                    </td>
+                                    <td><a href="{{route('categories.edit',['id'=>$category->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a></td>
+                                    <td><a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -15,15 +15,6 @@ class Category extends Model
         'name', 'description', 'status',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'status',
-    ];
-
     public function products()
     {
         return $this->belongsToMany('App\Product');
