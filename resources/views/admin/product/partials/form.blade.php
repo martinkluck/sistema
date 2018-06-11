@@ -16,15 +16,15 @@
 </div>
 <div class="form-group">
     {{Form::label('stock','Stock')}}
-    {{Form::text('stock',null,['class'=>'form-control', 'id'=>'stock'])}}
+    {{Form::number('stock',null,['class'=>'form-control', 'id'=>'stock'])}}
 </div>
 <div class="form-group">
     {{Form::label('imei','IMEI')}}
-    {{Form::text('imei',null,['class'=>'form-control', 'id'=>'imei'])}}
+    {{Form::number('imei',null,['class'=>'form-control', 'id'=>'imei'])}}
 </div>
 <div class="form-group">
     {{Form::label('code','Código')}}
-    {{Form::text('code',null,['class'=>'form-control', 'id'=>'code'])}}
+    {{Form::number('code',null,['class'=>'form-control', 'id'=>'code'])}}
 </div>
 <div class="form-group">
     {{Form::label('images','Imagenes')}}

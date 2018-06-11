@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
-            $table->double('price');
+            $table->bigInteger('price');
             $table->integer('stock');
-            $table->integer('imei')->unique();
-            $table->integer('code');
+            $table->bigInteger('imei')->unique();
+            $table->bigInteger('code');
             $table->boolean('status');
             $table->timestamps();
         });

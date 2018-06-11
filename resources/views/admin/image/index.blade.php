@@ -32,13 +32,14 @@
                             @foreach($images as $image)
                                 <tr>
                                     <td>{{$image->id}}</td>
-                                    <td>{{$image->url}}</td>
+                                    <td><img src="{{asset('/images/'.$image->url)}}" class="img-responsive" width="100" alt="{{$image->description}}"></td>
                                     <td>{{$image->description}}</td>
                                     <td>{{$image->status}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        {{$images->render()}}
                     </div>
                 </div>
             </div>

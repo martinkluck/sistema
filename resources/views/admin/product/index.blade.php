@@ -39,6 +39,7 @@
                             <th>IMEI</th>
                             <th>Código</th>
                             <th>Estado</th>
+                            <th></th>
                             </thead>
                             <tbody>
                             @foreach($products as $product)
@@ -50,11 +51,25 @@
                                     <td>{{$product->stock}}</td>
                                     <td>{{$product->imei}}</td>
                                     <td>{{$product->code}}</td>
-                                    <td>{{$product->status}}</td>
+                                    <td>
+                                        @if($product->status)
+                                            <span class="badge badge-success">Activo</span>
+                                        @else
+                                            <span class="badge badge-danger">Inactivo</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-default"><i class="fa fa-image"></i></a>
+                                        {!! Form::open(['route'=>['products.destroy', $product->id],'method'=>'DELETE']) !!}
+                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        {!! Form::close() !!}
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        {{$products->render()}}
                     </div>
                 </div>
             </div>
