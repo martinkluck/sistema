@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('category_id','Categorías') }}
-    {{ Form::select('category_id',$categories,null,['class' => 'form-control']) }}
+    {{ Form::select('category_id[]',$categories,null,['class' => 'form-control','multiple'=>true]) }}
 </div>
 <div class="form-group">
     {{Form::label('price','Precio')}}

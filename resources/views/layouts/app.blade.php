@@ -123,8 +123,30 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                            <div class="alert alert-success">
+                            <div class="alert alert-info">
                                 {{session('info')}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if(session('error'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-error">
+                                {{session('error')}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if(session('success'))
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-success">
+                                {{session('success')}}
                             </div>
                         </div>
                     </div>

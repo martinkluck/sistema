@@ -16,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id','ASC')->paginate(10);
+        $products = Product::orderBy('id','ASC')->with('categories')->paginate(10);
+//        dd($products);
         return view('admin.product.index',compact('products'));
     }
 
@@ -49,6 +50,9 @@ class ProductController extends Controller
             $filename = $file->getClientOriginalName();
             $images[] = new Image(['description'=>$product->name,'url'=>$filename,'status'=>true]);
             $upload_success = $file->move($destinationPath, $filename);
+        }
+        foreach ($request->category_id as $id){
+            $product->categories()->attach($id);
         }
 
         $product->images()->saveMany($images);
@@ -90,7 +94,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        if($request->status){
+            $product->status = 1;
+        }else{
+            $product->status = 0;
+        }
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->imei = $request->imei;
+        $product->code = $request->code;
+        $product->save();
+        return redirect()->route('categories.index', $product->id)
+            ->with('info', 'Categoría actualizada con éxito.');
     }
 
     /**
