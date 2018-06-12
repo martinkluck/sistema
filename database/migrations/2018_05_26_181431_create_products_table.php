@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->bigInteger('imei')->unique();
             $table->bigInteger('code');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

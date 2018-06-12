@@ -25,10 +25,14 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
         Route::post('roles','UserController@setRoles')->name('setRoles');
         Route::get('permissions','UserController@permissions')->name('permissions');
         Route::post('permissions','UserController@setPermissions')->name('setPermissions');
-        Route::get('register','Auth/RegisterController@create')->name('register');
+        Route::get('register','Auth\RegisterController@create')->name('register');
     });
     Route::resource('bills', 'BillController');
     Route::resource('categories', 'CategoryController');
     Route::resource('images', 'ImageController');
     Route::resource('products', 'ProductController');
 });
+
+Route::get('/{vue_capture?}', function () {
+    return view('welcome');
+})->where('vue_capture', '[\/\w\.-]*');

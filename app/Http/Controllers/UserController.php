@@ -56,6 +56,13 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function show(User $user){
+        $user->load(['permissions','roles']);
+        return view('admin.user.show',compact('user'));
+    }
+
+    //Roles y permisos
+
     public function roles(){
         $roles = Role::all();
         return view('admin.user.role',compact('roles'));

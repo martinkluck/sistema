@@ -19,7 +19,7 @@ class CreatePermissionTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('guard_name');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
 
@@ -27,7 +27,7 @@ class CreatePermissionTables extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('guard_name');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
 
