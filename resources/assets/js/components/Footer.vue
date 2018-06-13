@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+            <span class="text-muted">MARTIN KLUCK 2018 &copy;</span>
         </div>
     </footer>
 </template>
