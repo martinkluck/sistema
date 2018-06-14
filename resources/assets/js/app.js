@@ -17,8 +17,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import { sync } from 'vuex-router-sync'
 import router from './router';
+import store from './store';
 import App from './App.vue';
+
+sync(store, router);
 
 /*
 const app = new Vue({
@@ -27,5 +31,6 @@ const app = new Vue({
 */
 new Vue({
     router,
+    store,
     render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

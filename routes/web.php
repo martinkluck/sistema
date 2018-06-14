@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
 Auth::routes();
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
-    Route::get('/', 'HomeController@index')->name('admin');
+    Route::get('/', 'AdminController@index')->name('admin');
     Route::group(['middleware' => ['role:Superadmin']], function () {
         Route::resource('users', 'UserController');
         Route::get('roles','UserController@roles')->name('roles');
@@ -32,6 +28,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
     Route::resource('images', 'ImageController');
     Route::resource('products', 'ProductController');
 });
+
+Route::get('/get-products', 'HomeController@getProducts');
 
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
