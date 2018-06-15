@@ -52358,7 +52358,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.card-body div .badge[data-v-8120f770]{\n    font-size: 14px;\n}\n", ""]);
+exports.push([module.i, "\n.card-body div .badge[data-v-8120f770]{\n    font-size: 14px;\n}\n.see-more[data-v-8120f770]{\n    border: 1px solid #ccc;\n    padding: 5px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    cursor: pointer;\n}\n.see-more[data-v-8120f770]:hover{\n    -webkit-box-shadow: 2px 2px #ccc;\n            box-shadow: 2px 2px #ccc;\n}\n.product-modal[data-v-8120f770]{\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background-color: #000000a6;\n    top: 0;\n    left: 0;\n    padding: 30% 0;\n}\n", ""]);
 
 // exports
 
@@ -52400,12 +52400,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Product",
     props: ['product'],
+    data: function data() {
+        return {
+            show: false
+        };
+    },
     mounted: function mounted() {
         console.log(this.product);
+    },
+
+    methods: {
+        showModal: function showModal() {
+            this.show = !this.show;
+        }
     }
 });
 
@@ -52524,11 +52545,47 @@ var render = function() {
               ])
             ])
           : _vm._e()
-      ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "see-more", on: { click: _vm.showModal } }, [
+        _vm._v("\n            Ver Más "),
+        _c("i", { staticClass: "fas fa-plus" })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.show,
+              expression: "show"
+            }
+          ],
+          staticClass: "product-modal row"
+        },
+        [_vm._m(0)]
+      )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card col-8 offset-2 col-sm-6 offset-sm-3" },
+      [
+        _c("div", { staticClass: "card-body" }, [
+          _c("h1", [_vm._v("Hola esto es un modal")])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -52558,7 +52615,7 @@ var render = function() {
             _vm._l(_vm.productos, function(product) {
               return _c(
                 "div",
-                { key: product.id, staticClass: "col-3" },
+                { key: product.id, staticClass: "col-12 col-sm-3" },
                 [_c("product", { attrs: { product: product } })],
                 1
               )

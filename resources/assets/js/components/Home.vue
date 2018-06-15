@@ -6,7 +6,7 @@
                 <div class="card-body text-center">
                     <h1>Últimos Productos</h1>
                     <div class="row">
-                        <div v-for="product in productos" :key="product.id" class="col-3">
+                        <div v-for="product in productos" :key="product.id" class="col-12 col-sm-3">
                             <product :product="product"></product>
                         </div>
                     </div>
