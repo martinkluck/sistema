@@ -52358,7 +52358,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.card-body div .badge[data-v-8120f770]{\n    font-size: 14px;\n}\n.see-more[data-v-8120f770]{\n    border: 1px solid #ccc;\n    padding: 5px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    cursor: pointer;\n}\n.see-more[data-v-8120f770]:hover{\n    -webkit-box-shadow: 2px 2px #ccc;\n            box-shadow: 2px 2px #ccc;\n}\n.product-modal[data-v-8120f770]{\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background-color: #000000a6;\n    top: 0;\n    left: 0;\n    padding: 30% 0;\n}\n", ""]);
+exports.push([module.i, "\n.card-body div .badge[data-v-8120f770]{\n    font-size: 14px;\n}\n.see-more[data-v-8120f770]{\n    border: 1px solid #ccc;\n    padding: 5px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    cursor: pointer;\n}\n.see-more[data-v-8120f770]:hover{\n    -webkit-box-shadow: 2px 2px #ccc;\n            box-shadow: 2px 2px #ccc;\n}\n.product-modal[data-v-8120f770]{\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background-color: #000000a6;\n    top: 0;\n    left: 0;\n    padding: 30% 0;\n}\n.product-modal .card[data-v-8120f770]{\n    position: absolute;\n    top: 10%;\n    left: 0;\n    z-index: 1000;\n}\n.button-close[data-v-8120f770]{\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin: 5px 10px;\n    cursor: pointer;\n    font-size: 24px;\n    padding: 0px 10px;\n    border-radius: 50%;\n}\n.button-close[data-v-8120f770]:hover{\n    -webkit-box-shadow: 2px 2px #ccc;\n            box-shadow: 2px 2px #ccc;\n}\n", ""]);
 
 // exports
 
@@ -52410,6 +52410,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "Product",
@@ -52420,12 +52421,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        console.log(this.product);
+        // console.log(this.product);
     },
 
     methods: {
-        showModal: function showModal() {
+        toggleModal: function toggleModal() {
             this.show = !this.show;
+        },
+        closeModal: function closeModal(e) {
+            if ((" " + e.target.className + " ").replace(/[\n\t]/g, " ").indexOf(" cerrar ") > -1) {
+                this.show = false;
+            }
         }
     }
 });
@@ -52547,7 +52553,7 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "see-more", on: { click: _vm.showModal } }, [
+      _c("div", { staticClass: "see-more", on: { click: _vm.toggleModal } }, [
         _vm._v("\n            Ver Más "),
         _c("i", { staticClass: "fas fa-plus" })
       ]),
@@ -52563,7 +52569,8 @@ var render = function() {
               expression: "show"
             }
           ],
-          staticClass: "product-modal row"
+          staticClass: "product-modal row cerrar",
+          on: { click: _vm.closeModal }
         },
         [_vm._m(0)]
       )
@@ -52580,6 +52587,10 @@ var staticRenderFns = [
       { staticClass: "card col-8 offset-2 col-sm-6 offset-sm-3" },
       [
         _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "button-close" }, [
+            _c("i", { staticClass: "fas fa-times" })
+          ]),
+          _vm._v(" "),
           _c("h1", [_vm._v("Hola esto es un modal")])
         ])
       ]
