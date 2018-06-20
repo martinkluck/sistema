@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <!--<img class="card-img-top" src="/img/home.jpg" alt="Card image cap">-->
+                <img class="card-img-top" src="/img/home.jpg" alt="Card image cap">
                 <div class="card-body text-center">
                     <h1>Últimos Productos</h1>
                     <div class="row">

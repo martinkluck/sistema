@@ -24,15 +24,21 @@
                 <p v-if="product.stock>0"><span class="badge badge-success">Disponible</span></p>
                 <p v-if="product.stock<=0"><span class="badge badge-secondary">Agotado</span></p>
             </div>
-            <div class="see-more" v-on:click="toggleModal">
+            <div class="see-more" data-toggle="modal" :data-target="'#product-'+product.id+'-modal'">
                 Ver Más <i class="fas fa-plus"></i>
             </div>
-            <div v-show="show" class="product-modal row cerrar" v-on:click="closeModal">
-                <div class="card col-8 offset-2 col-sm-6 offset-sm-3">
-                    <div class="card-body">
-                        <div class="button-close cerrar" v-on:click="closeModal"><i class="fas fa-times"></i></div>
-                        <h1>{{product.name}}</h1>
-                        <p v-html="product.description"></p>
+            <div class="modal fade" :id="'product-'+product.id+'-modal'" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">{{product.name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p v-html="product.description"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,25 +49,7 @@
 <script>
     export default {
         name: "Product",
-        props: ['product'],
-        data(){
-            return {
-                show: false
-            }
-        },
-        mounted(){
-            // console.log(this.product);
-        },
-        methods: {
-            toggleModal(){
-                this.show = !this.show;
-            },
-            closeModal(e){
-                if((" " + e.target.className + " ").replace(/[\n\t]/g, " ").indexOf(" cerrar ") > -1){
-                    this.show = false;
-                }
-            }
-        }
+        props: ['product']
     }
 </script>
 
@@ -78,34 +66,6 @@
         cursor: pointer;
     }
     .see-more:hover{
-        box-shadow: 2px 2px #ccc;
-    }
-    .product-modal{
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: #000000a6;
-        top: 0;
-        left: 0;
-        padding: 30% 0;
-    }
-    .product-modal .card{
-        position: absolute;
-        top: 10%;
-        left: 0;
-        z-index: 1000;
-    }
-    .button-close{
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 5px 10px;
-        cursor: pointer;
-        font-size: 24px;
-        padding: 0px 10px;
-        border-radius: 50%;
-    }
-    .button-close:hover{
         box-shadow: 2px 2px #ccc;
     }
 </style>
