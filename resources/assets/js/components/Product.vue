@@ -17,7 +17,6 @@
         </div>
         <div class="card-body row">
             <h5 class="card-title col-12">{{product.name}}</h5>
-            <p>{{product.description}}</p>
             <div class="col-6">
                 <p><span class="badge badge-dark">$ {{product.price}}</span></p>
             </div>
@@ -31,8 +30,9 @@
             <div v-show="show" class="product-modal row cerrar" v-on:click="closeModal">
                 <div class="card col-8 offset-2 col-sm-6 offset-sm-3">
                     <div class="card-body">
-                        <div class="button-close"><i class="fas fa-times"></i></div>
-                        <h1>Hola esto es un modal</h1>
+                        <div class="button-close cerrar" v-on:click="closeModal"><i class="fas fa-times"></i></div>
+                        <h1>{{product.name}}</h1>
+                        <p v-html="product.description"></p>
                     </div>
                 </div>
             </div>

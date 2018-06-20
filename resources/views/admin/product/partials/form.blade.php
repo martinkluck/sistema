@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {{Form::label('description','Descripción')}}
-    {{Form::text('description',null,['class'=>'form-control', 'id'=>'description'])}}
+    {{Form::textarea('description',null,['class'=>'form-control', 'id'=>'description'])}}
 </div>
 <div class="form-group">
     {{ Form::label('category_id','Categorías') }}

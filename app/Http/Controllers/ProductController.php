@@ -106,8 +106,8 @@ class ProductController extends Controller
         $product->imei = $request->imei;
         $product->code = $request->code;
         $product->save();
-        return redirect()->route('categories.index', $product->id)
-            ->with('info', 'Categoría actualizada con éxito.');
+        return redirect()->route('products.index', $product->id)
+            ->with('info', 'Producto actualizado con éxito.');
     }
 
     /**
