@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->bigInteger('price');
             $table->integer('stock');
-            $table->string('external_link');
+            $table->string('external_link')->nullable(true);
             $table->bigInteger('imei')->unique();
             $table->bigInteger('code');
             $table->boolean('status')->default(1);
