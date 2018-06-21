@@ -62,7 +62,7 @@
                                         <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                                         <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-default"><i class="fa fa-image"></i></a>
                                         {!! Form::open(['route'=>['products.destroy', $product->id],'method'=>'DELETE']) !!}
-                                        <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

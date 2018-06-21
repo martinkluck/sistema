@@ -82,6 +82,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::orderBy('name','ASC')->pluck('name','id');
+        $product->load('categories');
         return view('admin.product.edit',compact('categories','product'));
     }
 
@@ -105,6 +106,7 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->imei = $request->imei;
         $product->code = $request->code;
+        $product->external_link = $request->external_link;
         $product->save();
         return redirect()->route('products.index', $product->id)
             ->with('info', 'Producto actualizado con éxito.');
@@ -118,6 +120,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->status = false;
+        $product->save();
+        return redirect()->route('products.index')
+            ->with('info', 'Producto eliminado correctamente');
     }
 }

@@ -3,8 +3,8 @@
     {{Form::text('name',null,['class'=>'form-control', 'id'=>'name'])}}
 </div>
 <div class="form-group">
-    {{Form::label('description','Descripción')}}
-    {{Form::textarea('description',null,['class'=>'form-control', 'id'=>'description'])}}
+    {{Form::label('product-description','Descripción')}}
+    {{Form::textarea('description',null,['class'=>'form-control', 'id'=>'product-description'])}}
 </div>
 <div class="form-group">
     {{ Form::label('category_id','Categorías') }}
@@ -25,6 +25,10 @@
 <div class="form-group">
     {{Form::label('code','Código')}}
     {{Form::number('code',null,['class'=>'form-control', 'id'=>'code'])}}
+</div>
+<div class="form-group">
+    {{Form::label('external_link','Link externo')}}
+    {{Form::text('external_link',null,['class'=>'form-control', 'id'=>'external_link'])}}
 </div>
 <div class="form-group">
     {{Form::label('images','Imagenes')}}
