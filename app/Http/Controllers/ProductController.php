@@ -105,6 +105,24 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->imei = $request->imei;
         $product->code = $request->code;
+
+        if($request->file('images')){
+            $files = $request->file('images');
+            $destinationPath = 'images';
+
+            $images = [];
+            foreach($files as $file) {
+                $filename = $file->getClientOriginalName();
+                $images[] = new Image(['description'=>$product->name,'url'=>$filename,'status'=>true]);
+                $upload_success = $file->move($destinationPath, $filename);
+            }
+            foreach ($request->category_id as $id){
+                $product->categories()->attach($id);
+            }
+
+            $product->images()->saveMany($images);
+        }
+
         $product->save();
         return redirect()->route('products.index', $product->id)
             ->with('info', 'Producto actualizado con éxito.');
