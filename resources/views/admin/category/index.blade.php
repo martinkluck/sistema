@@ -44,7 +44,7 @@
                                     </td>
                                     <td><a href="{{route('categories.edit',['id'=>$category->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a></td>
                                     <td>
-                                        {!! Form::open(['route'=>['categories.destroy', $category->id],'method'=>'DELETE']) !!}
+                                        {!! Form::open(['route'=>['categories.destroy', $category->id],'method'=>'DELETE','class'=>'delete-form']) !!}
                                         <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
                                     </td>

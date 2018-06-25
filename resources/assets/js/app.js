@@ -13,9 +13,12 @@ require('trumbowyg/dist/trumbowyg.min');
 
 import icons from "trumbowyg/dist/ui/icons.svg"
 import "trumbowyg/dist/ui/trumbowyg.min.css"
-$.trumbowyg.svgPath = "trumbowyg/dist/ui/icons.svg";
+
+$.trumbowyg.svgPath = icons;
 
 window.Vue = require('vue');
+
+import swal from 'sweetalert2';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,5 +39,22 @@ if(document.getElementById('app')!==null){
         render: h => h(App)
     }).$mount('#app');
 }else{
-    $('#product-description').trumbowyg();
+    $(document).ready(function () {
+        $('#product-description').trumbowyg();
+        $('.delete-form').on('submit',function (e) {
+            e.preventDefault();
+            const {value: formValues} = swal({
+                title: '¿Está seguro?',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Eliminar',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+                preConfirm: () => {
+                    // console.log(e);
+                    e.target.submit();
+                }
+            })
+        });
+    });
 }
