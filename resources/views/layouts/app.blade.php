@@ -101,14 +101,14 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a href="{{route('images.index')}}" class="nav-link">
                             <i class="nav-icon fa fa-image"></i>
                             <p>
                                 Imagenes
                             </p>
                         </a>
-                    </li>
+                    </li>--}}
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

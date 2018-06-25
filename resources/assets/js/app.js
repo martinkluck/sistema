@@ -11,7 +11,9 @@ require('./adminlte');
 
 require('trumbowyg/dist/trumbowyg.min');
 
-import 'trumbowyg/dist/ui/trumbowyg.css';
+import icons from "trumbowyg/dist/ui/icons.svg"
+import "trumbowyg/dist/ui/trumbowyg.min.css"
+$.trumbowyg.svgPath = "trumbowyg/dist/ui/icons.svg";
 
 window.Vue = require('vue');
 
@@ -28,11 +30,11 @@ import App from './App.vue';
 sync(store, router);
 
 if(document.getElementById('app')!==null){
-new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app');
+    new Vue({
+        router,
+        store,
+        render: h => h(App)
+    }).$mount('#app');
 }else{
-    $('#description').trumbowyg();
+    $('#product-description').trumbowyg();
 }

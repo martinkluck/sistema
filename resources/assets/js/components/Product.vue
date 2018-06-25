@@ -3,7 +3,7 @@
         <div :id="product.id" class="carousel slide carousel-fade card-img-top" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-for="image in product.images" :key="image.url" :class="image.url===product.images[0].url?'carousel-item active':'carousel-item'">
-                    <img class="d-block w-100" :src="'http://local.sistema.com/images/'+image.url" :alt="image.description">
+                    <img class="d-block w-100" :src="'/images/'+image.url" :alt="image.description">
                 </div>
             </div>
             <a class="carousel-control-prev" :href="'#'+product.id" role="button" data-slide="prev">

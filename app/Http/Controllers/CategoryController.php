@@ -92,6 +92,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->status = false;
+        $category->save();
+        return redirect()->route('categories.index')
+            ->with('info', 'Categoría actualizada con éxito.');
     }
 }
