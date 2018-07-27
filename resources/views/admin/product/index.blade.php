@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Productos
+                        Cantidad: <span class="small">{{count($products)}}</span>
                         <span class="float-right">
                             <a href="{{route('products.create')}}" class="btn btn-default btn-sm btn-circle" title="Agregar producto">
                                 Agregar
@@ -59,7 +59,11 @@
                                             <span class="badge badge-danger">Inactivo</span>
                                         @endif
                                     </td>
-                                    <td>{{$product->categories->pluck('name')}}</td>
+                                    <td>
+                                        @foreach($product->categories as $category)
+                                            {{$category->name}}
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                                         <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-default"><i class="fa fa-image"></i></a>

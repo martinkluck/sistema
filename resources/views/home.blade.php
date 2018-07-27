@@ -8,7 +8,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard v3</li>
+                    <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
-                            {{ session('status') }}
+                            {{ __(session('status')) }}
                         </div>
                     @endif
 

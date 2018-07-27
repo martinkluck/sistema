@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-header">Editar Producto</div>
                     <div class="card-body">
-                        {!! Form::model($product,['route'=>['products.update', $product->id],'method'=>'PUT']) !!}
+                        {!! Form::model($product,['route'=>['products.update', $product->id],'method'=>'PUT','files'=>true]) !!}
                         @include('admin.product.partials.form')
                         {!! Form::close() !!}
                     </div>

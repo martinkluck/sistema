@@ -106,6 +106,12 @@ class ProductController extends Controller
         $product->stock = $request->stock;
         $product->imei = $request->imei;
         $product->code = $request->code;
+        $product->categories()->detach();
+        foreach ($request->category_id as $id){
+            if(!$product->categories()->find($id)) {
+                $product->categories()->attach($id);
+            }
+        }
         if($request->file('images')){
             $files = $request->file('images');
             $destinationPath = 'images';
@@ -115,9 +121,6 @@ class ProductController extends Controller
                 $filename = $file->getClientOriginalName();
                 $images[] = new Image(['description'=>$product->name,'url'=>$filename,'status'=>true]);
                 $upload_success = $file->move($destinationPath, $filename);
-            }
-            foreach ($request->category_id as $id){
-                $product->categories()->attach($id);
             }
 
             $product->images()->saveMany($images);
