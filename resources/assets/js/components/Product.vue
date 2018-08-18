@@ -24,24 +24,9 @@
                 <p v-if="product.stock>0"><span class="badge badge-success">Disponible</span></p>
                 <p v-if="product.stock<=0"><span class="badge badge-secondary">Agotado</span></p>
             </div>
-            <div class="see-more" data-toggle="modal" :data-target="'#product-'+product.id+'-modal'">
-                Ver Más <i class="fas fa-plus"></i>
-            </div>
-            <div class="modal fade" :id="'product-'+product.id+'-modal'" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">{{product.name}}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p v-html="product.description"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <router-link :to="{name: 'ProductDetails',params: {id:product.id}}" active-class="active" tag="div" class="see-more">
+                <a>Ver Más <i class="fas fa-plus"></i></a>
+            </router-link>
         </div>
     </div>
 </template>

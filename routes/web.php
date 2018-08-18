@@ -30,6 +30,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
 });
 
 Route::get('/get-products', 'HomeController@getProducts');
+Route::get('/get-categories', 'HomeController@getCategories');
+Route::get('/get-product/{product}', 'HomeController@getProduct');
+Route::get('/get-products-by-category/{category}', 'HomeController@getProductsByCategory');
 
 Route::get('/{vue_capture?}', function () {
     return view('welcome');

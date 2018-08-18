@@ -41,22 +41,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create($request->all());
-
-        $files = $request->file('images');
-        $destinationPath = 'images';
-
-        $images = [];
-        foreach($files as $file) {
-            $filename = $file->getClientOriginalName();
-            $images[] = new Image(['description'=>$product->name,'url'=>$filename,'status'=>true]);
-            $upload_success = $file->move($destinationPath, $filename);
+        if($request->file('images')){
+            $files = $request->file('images');
+            $destinationPath = 'images';
+            $images = [];
+            foreach($files as $file) {
+                $filename = $file->getClientOriginalName();
+                $images[] = new Image(['description'=>$product->name,'url'=>$filename,'status'=>true]);
+                $upload_success = $file->move($destinationPath, $filename);
+            }
+            $product->images()->saveMany($images);
         }
         foreach ($request->category_id as $id){
             $product->categories()->attach($id);
         }
-
-        $product->images()->saveMany($images);
-
         return redirect()->route('products.index')
             ->with('info', 'Producto creado correctamente.');
     }

@@ -2,7 +2,11 @@
     <div>
         <Header></Header>
         <div class="container">
-            <router-view/>
+            <transition
+                name="slide"
+            >
+                <router-view/>
+            </transition>
         </div>
         <Footer></Footer>
     </div>

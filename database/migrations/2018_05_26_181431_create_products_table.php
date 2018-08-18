@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('price');
             $table->integer('stock');
             $table->string('external_link')->nullable(true);
-            $table->bigInteger('imei')->unique();
+            $table->string('imei')->unique();
             $table->bigInteger('code');
             $table->boolean('status')->default(1);
             $table->timestamps();
