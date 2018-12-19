@@ -15,7 +15,7 @@
                             Categorías
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <router-link v-for="category in categories" :to="{name: 'Categories',params: {id:category.id}}" active-class="active" class="dropdown-item">
+                            <router-link v-for="category in categories" :key="category.id" :to="{name: 'Categories',params: {id:category.id}}" active-class="active" class="dropdown-item">
                                 {{category.name}}
                             </router-link>
                         </div>
