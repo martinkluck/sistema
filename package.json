@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
-        "admin-lte": "^3.0.0-alpha.2",
+        "admin-lte": "^3.0.0",
         "vue-router": "^3.0.1"
     }
 }
